@@ -1,8 +1,5 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import type React from "react"; // Import React
-
-const inter = Inter({ subsets: ["latin"] });
+import type React from "react";
 
 export const metadata = {
   title: "ISS Tracker",
@@ -17,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
