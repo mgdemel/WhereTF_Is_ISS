@@ -27,7 +27,7 @@ export default function ISSTracker() {
     const fetchISSData = async () => {
       try {
         const response = await fetch(
-          "https://api.wheretheiss.at/v1/satellites/25544"
+          "https://api.wheretheiss.at/v1/satellites/25544",
         );
         const data = await response.json();
         setISSData({
