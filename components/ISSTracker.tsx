@@ -26,7 +26,7 @@ export default function ISSTracker() {
   useEffect(() => {
     const fetchISSData = async () => {
       try {
-        const response = await fetch("http://api.open-notify.org/iss-now.json");
+        const response = await fetch("https://api.wheretheiss.at/v1/satellites/25544");
         const data = await response.json();
         setISSData({
           latitude: Number.parseFloat(data.iss_position.latitude),
