@@ -42,7 +42,7 @@ export default function ISSTracker() {
     };
 
     fetchISSData();
-    const interval = setInterval(fetchISSData, 5000); // Update every 5 seconds
+    const interval = setInterval(fetchISSData, 30000); // Update every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
