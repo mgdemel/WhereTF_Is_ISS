@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/main.css" rel="stylesheet" />
+    <style>
+      body {
+        background: url("../public/images/bg.jpg") no-repeat center center fixed;
+      }
+      #map {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <title>ISS Satellite Tracker</title>
+  </head>
+  <body
+    class="flex min-h-screen flex-col items-center justify-between p-24 text-white"
+  >
+    <h1 class="text-4xl font-bold mb-8">International Space Station Tracker</h1>
+    <div class="w-full max-w-4xl">
+      <div class="h-[400px] w-full rounded-lg" id="map"></div>
+      <div id="iss-data" class="mt-4 p-4 rounded-lg shadow">
+        <h2 class="text-2xl font-bold mb-2">ISS Information</h2>
+        <p><strong>Latitude:</strong> <span id="latitude">Loading...</span></p>
+        <p>
+          <strong>Longitude:</strong> <span id="longitude">Loading...</span>
+        </p>
+        <p>
+          <strong>Altitude (km):</strong> <span id="altitude">Loading...</span>
+        </p>
+        <p>
+          <strong>Velocity (km/h):</strong>
+          <span id="velocity">Loading...</span>
+        </p>
+        <p>
+          <strong>Visibility:</strong> <span id="visibility">Loading...</span>
+        </p>
+        <p>
+          <strong>Timestamp:</strong> <span id="timestamp">Loading...</span>
+        </p>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
