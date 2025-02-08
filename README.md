@@ -39,3 +39,8 @@ But we could see that v0 went with the "Charting ISS on a map" approach, because
 
 ## Step 2: agreeing/disagreeing with v0
 
+v0 told us after generating the code:
+
+"Note that the API used in this example ([http://api.open-notify.org/iss-now.json](http://api.open-notify.org/iss-now.json)) doesn't provide all the information you mentioned in your initial data structure. If you have access to an API that provides more detailed information (like altitude, velocity, and visibility), you can update the `fetchISSData` function in the `ISSTracker` component to use that API and display the additional information."
+
+So we updated the code to use the API we originally used in this project, the output of which was the data object we gave v0 to generate the code.
