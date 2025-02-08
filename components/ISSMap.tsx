@@ -18,7 +18,7 @@ interface ISSMapProps {
 }
 
 const ISSIcon = L.icon({
-  iconUrl: "/iss-icon.png",
+  iconUrl: "/images/iss-icon.png",
   iconSize: [50, 50],
   iconAnchor: [25, 25],
 });
