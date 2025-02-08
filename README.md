@@ -6,6 +6,11 @@ A simple app to track the location of the international space station since we a
 Run the development server:
 
 ```bash
+npm i
+```
+then
+
+```bash
 npm run dev
 ```
 
