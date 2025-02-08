@@ -57,3 +57,10 @@ This solved the internal server error and we were able to see the UI created by 
 ![v0's UI before our updates](./public/images/v0-ui.png)
 
 It looks and works pretty good, aside from the broken map marker image and font color issues when viewing it in dark mode.
+
+## Step 3: clean up and deploy
+
+After some tweaking and adding an icon the project looked like this:
+![Screenshot of the deployed app](./public/images/deployed.jpg)
+
+We left the `out` folder in the repository so our server can just clone the repo and deploy the directory.
