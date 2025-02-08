@@ -1,25 +1,23 @@
-import "./globals.css"
-import { Inter } from "next/font/google"
-import type React from "react" // Import React
+import "./globals.css";
+import { Inter } from "next/font/google";
+import type React from "react"; // Import React
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "ISS Tracker",
   description: "Track the International Space Station in real-time",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <head>
-      </head>
+      <head></head>
       <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
-
