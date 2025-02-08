@@ -26,14 +26,16 @@ export default function ISSTracker() {
   useEffect(() => {
     const fetchISSData = async () => {
       try {
-        const response = await fetch("https://api.wheretheiss.at/v1/satellites/25544");
+        const response = await fetch(
+          "https://api.wheretheiss.at/v1/satellites/25544"
+        );
         const data = await response.json();
         setISSData({
           latitude: Number.parseFloat(data.latitude),
           longitude: Number.parseFloat(data.longitude),
-          altitude: 0, // This API doesn't provide altitude
-          velocity: 0, // This API doesn't provide velocity
-          visibility: "unknown", // This API doesn't provide visibility
+          altitude: Number.parseFloat(data.altitude),
+          velocity: Number.parseFloat(data.velocity),
+          visibility: data.visibility,
           timestamp: data.timestamp,
         });
       } catch (error) {
@@ -66,6 +68,12 @@ export default function ISSTracker() {
             Latitude: {issData.latitude.toFixed(4)}
             <br />
             Longitude: {issData.longitude.toFixed(4)}
+            <br />
+            Altitude: {issData.altitude.toFixed(4)}
+            <br />
+            Velocity: {issData.velocity.toFixed(4)}
+            <br />
+            Visibility: {issData.visibility}
           </Popup>
         </Marker>
       </MapContainer>
@@ -74,6 +82,9 @@ export default function ISSTracker() {
         <p>Latitude: {issData.latitude.toFixed(4)}</p>
         <p>Longitude: {issData.longitude.toFixed(4)}</p>
         <p>Timestamp: {new Date(issData.timestamp * 1000).toLocaleString()}</p>
+        <p>Altitude: {issData.altitude.toFixed(4)}</p>
+        <p>Velocity: {issData.velocity.toFixed(4)}</p>
+        <p>Visibility: {issData.visibility}</p>
       </div>
     </div>
   );
