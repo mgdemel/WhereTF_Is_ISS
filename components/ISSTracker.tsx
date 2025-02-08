@@ -1,19 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ISSData } from "@/types";
 import dynamic from "next/dynamic";
 
 // Dynamically import the ISSMap component with SSR disabled
 const ISSMap = dynamic(() => import("./ISSMap"), { ssr: false });
-
-interface ISSData {
-  latitude: number;
-  longitude: number;
-  altitude: number;
-  velocity: number;
-  visibility: string;
-  timestamp: number;
-}
 
 export default function ISSTracker() {
   const [issData, setISSData] = useState<ISSData | null>(null);
@@ -50,9 +42,7 @@ export default function ISSTracker() {
 
   return (
     <div className="w-full max-w-4xl">
-      {/* Dynamically loaded map component */}
       <ISSMap issData={issData} />
-      
       <div className="mt-4 p-4 rounded-lg shadow">
         <h2 className="text-2xl font-bold mb-2">ISS Information</h2>
         <p>Latitude: {issData.latitude.toFixed(4)}</p>
