@@ -44,3 +44,8 @@ v0 told us after generating the code:
 "Note that the API used in this example ([http://api.open-notify.org/iss-now.json](http://api.open-notify.org/iss-now.json)) doesn't provide all the information you mentioned in your initial data structure. If you have access to an API that provides more detailed information (like altitude, velocity, and visibility), you can update the `fetchISSData` function in the `ISSTracker` component to use that API and display the additional information."
 
 So we updated the code to use the API we originally used in this project, the output of which was the data object we gave v0 to generate the code.
+
+This, in part, solved the internal server error and we were finally able to see the UI created by v0:
+![v0's UI before our updates](./public/images/v0-ui.png)
+
+It looks and works pretty good, aside from the broken map marker image and font color issues when viewing it in dark mode.
