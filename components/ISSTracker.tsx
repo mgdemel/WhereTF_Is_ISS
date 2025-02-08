@@ -77,7 +77,7 @@ export default function ISSTracker() {
           </Popup>
         </Marker>
       </MapContainer>
-      <div className="mt-4 p-4 bg-white rounded-lg shadow">
+      <div className="mt-4 p-4 rounded-lg shadow">
         <h2 className="text-2xl font-bold mb-2">ISS Information</h2>
         <p>Latitude: {issData.latitude.toFixed(4)}</p>
         <p>Longitude: {issData.longitude.toFixed(4)}</p>
