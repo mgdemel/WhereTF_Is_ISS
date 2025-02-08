@@ -29,8 +29,8 @@ export default function ISSTracker() {
         const response = await fetch("https://api.wheretheiss.at/v1/satellites/25544");
         const data = await response.json();
         setISSData({
-          latitude: Number.parseFloat(data.iss_position.latitude),
-          longitude: Number.parseFloat(data.iss_position.longitude),
+          latitude: Number.parseFloat(data.latitude),
+          longitude: Number.parseFloat(data.longitude),
           altitude: 0, // This API doesn't provide altitude
           velocity: 0, // This API doesn't provide velocity
           visibility: "unknown", // This API doesn't provide visibility
