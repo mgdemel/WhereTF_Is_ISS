@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import dynamic from "next/dynamic";
+
+// Dynamically import the ISSMap component with SSR disabled
+const ISSMap = dynamic(() => import("./ISSMap"), { ssr: false });
 
 interface ISSData {
   latitude: number;
@@ -14,12 +15,6 @@ interface ISSData {
   timestamp: number;
 }
 
-const ISSIcon = L.icon({
-  iconUrl: "/iss-icon.png",
-  iconSize: [50, 50],
-  iconAnchor: [25, 25],
-});
-
 export default function ISSTracker() {
   const [issData, setISSData] = useState<ISSData | null>(null);
 
@@ -27,7 +22,7 @@ export default function ISSTracker() {
     const fetchISSData = async () => {
       try {
         const response = await fetch(
-          "https://api.wheretheiss.at/v1/satellites/25544",
+          "https://api.wheretheiss.at/v1/satellites/25544"
         );
         const data = await response.json();
         setISSData({
@@ -44,7 +39,7 @@ export default function ISSTracker() {
     };
 
     fetchISSData();
-    const interval = setInterval(fetchISSData, 30000); // Update every 5 seconds
+    const interval = setInterval(fetchISSData, 30000); // Update every 30 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -55,28 +50,9 @@ export default function ISSTracker() {
 
   return (
     <div className="w-full max-w-4xl">
-      <MapContainer
-        center={[issData.latitude, issData.longitude]}
-        zoom={3}
-        style={{ height: "400px", width: "100%" }}
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker position={[issData.latitude, issData.longitude]} icon={ISSIcon}>
-          <Popup>
-            ISS Location
-            <br />
-            Latitude: {issData.latitude.toFixed(4)}
-            <br />
-            Longitude: {issData.longitude.toFixed(4)}
-            <br />
-            Altitude: {issData.altitude.toFixed(4)}
-            <br />
-            Velocity: {issData.velocity.toFixed(4)}
-            <br />
-            Visibility: {issData.visibility}
-          </Popup>
-        </Marker>
-      </MapContainer>
+      {/* Dynamically loaded map component */}
+      <ISSMap issData={issData} />
+      
       <div className="mt-4 p-4 rounded-lg shadow">
         <h2 className="text-2xl font-bold mb-2">ISS Information</h2>
         <p>Latitude: {issData.latitude.toFixed(4)}</p>
